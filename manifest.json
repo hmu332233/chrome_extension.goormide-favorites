@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "goormide-favorites",
+  "version": "0.0.1",
+
+  "description": "goormide-favorites",
+  "default_locale": "ko",
+  "browser_action": {
+    "default_title": "test"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://ide-run.goorm.io/*"],
+      "js": ["contentScript.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": ["pageScript.js"],
+  "permissions": ["activeTab"]
+}
