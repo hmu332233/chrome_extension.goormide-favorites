@@ -2,9 +2,7 @@
   "manifest_version": 2,
   "name": "goormide-favorites",
   "version": "0.0.1",
-
   "description": "goormide-favorites",
-  "default_locale": "ko",
   "browser_action": {
     "default_title": "test"
   },
