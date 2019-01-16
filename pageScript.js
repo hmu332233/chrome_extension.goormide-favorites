@@ -21,3 +21,20 @@ function injectTab(tab) {
 
 const newTab = makeTabElement();
 injectTab(newTab);
+
+
+function makeMenuElement() {
+  const li = document.createElement('li');
+  const a = document.createElement('a');
+  a.textContent = '즐겨찾기 등록';
+  li.appendChild(a);
+  return li;
+}
+
+function injectContextMenu(menu) {
+  const fileContextDom = document.querySelector('#project\\.explorer\\.file_context > ul');
+  fileContextDom.prepend(menu);
+}
+
+const newMenu = makeMenuElement();
+injectContextMenu(newMenu);
