@@ -38,3 +38,18 @@ function injectContextMenu(menu) {
 
 const newMenu = makeMenuElement();
 injectContextMenu(newMenu);
+
+function makeTabContentSection() {
+  const div = document.createElement('div');
+  div.setAttribute('id', 'favorites_explorer_tab');
+
+  return div;
+}
+
+function injectTabContentSection(tabContent) {
+  const wetTabContentDom = document.querySelector('#west_tab_content');
+  wetTabContentDom.prepend(tabContent);
+}
+
+const newTabContent = makeTabContentSection();
+injectTabContentSection(newTabContent);
