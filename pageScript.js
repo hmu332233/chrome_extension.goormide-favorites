@@ -28,6 +28,10 @@ function makeMenuElement() {
   const a = document.createElement('a');
   a.textContent = '즐겨찾기 등록';
   li.appendChild(a);
+  li.addEventListener('click', () => {
+    const selectedElement = findSelectedElement();
+    addFavoriteItem(selectedElement);
+  });
   return li;
 }
 
@@ -42,6 +46,7 @@ injectContextMenu(newMenu);
 function makeTabContentSection() {
   const div = document.createElement('div');
   div.setAttribute('id', 'favorites_explorer_tab');
+  div.setAttribute('class', 'fade tab-pane');
 
   return div;
 }
@@ -53,3 +58,33 @@ function injectTabContentSection(tabContent) {
 
 const newTabContent = makeTabContentSection();
 injectTabContentSection(newTabContent);
+
+function findSelectedElement() {
+  const selectedElement = document.querySelector('[aria-selected=true]');
+  const path = selectedElement.getAttribute('path');
+  const fileType = selectedElement.getAttribute('file_type');
+  const fileName = path.split('/').slice(-1)[0];
+  const id = selectedElement.getAttribute('id');
+
+  return { id, path, fileType, fileName };
+}
+
+function makeFavoriteItem({ id, fileName, fileType, path }) {
+  const div = document.createElement('div');
+  div.setAttribute('item_id', id);
+  div.setAttribute('path', path);
+  div.setAttribute('file_type', fileType);
+  div.textContent = fileName;
+
+  div.addEventListener('click', () => {
+    const convertedId = id.replace(/\//gi, "\\/").replace(/\./gi, "\\.");     
+    $(`#${convertedId}`).dblclick();
+  });
+
+  return div;
+}
+
+function addFavoriteItem({ id, fileName, fileType, path }) {
+  const tabContentDom = document.querySelector('#favorites_explorer_tab');
+  tabContentDom.appendChild(makeFavoriteItem({ id, fileName, fileType, path }));
+}
