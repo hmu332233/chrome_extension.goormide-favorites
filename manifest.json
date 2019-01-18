@@ -9,10 +9,10 @@
   "content_scripts": [
     {
       "matches": ["https://ide-run.goorm.io/*"],
-      "js": ["contentScript.js"],
+      "js": ["dist/contentScript.js"],
       "run_at": "document_end"
     }
   ],
-  "web_accessible_resources": ["pageScript.js"],
+  "web_accessible_resources": ["dist/pageScript.js"],
   "permissions": ["activeTab"]
 }
