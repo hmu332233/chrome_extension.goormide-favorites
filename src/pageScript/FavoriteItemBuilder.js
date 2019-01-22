@@ -3,6 +3,10 @@ import { injectFavoriteItem } from './modules/elementInjectModules';
 
 class FavoriteItemBuilder {
   constructor() {
+
+    this.handleItemClick = this.handleItemClick.bind(this);
+    this.build = this.build.bind(this);
+    this.findSelectedElement = this.findSelectedElement.bind(this);
   }
 
   handleItemClick({ id }) {

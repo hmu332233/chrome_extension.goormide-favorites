@@ -29,6 +29,7 @@ function makeTabContentSection({ id }) {
 
 function makeFavoriteItem({ id, fileName, fileType, path }, { handler }) {
   const div = document.createElement('div');
+  div.classList.add('favoriteItem');
   div.setAttribute('item_id', id);
   div.setAttribute('path', path);
   div.setAttribute('file_type', fileType);

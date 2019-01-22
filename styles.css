@@ -1,0 +1,11 @@
+#west_tab_content .favoriteItem {
+  min-height: 24px;
+  line-height: 24px;
+  padding-left: 8px;
+  min-width: 24px;
+  cursor: pointer;
+}
+
+#west_tab_content .favoriteItem:hover {
+  background-color: #1a1a1a;
+}

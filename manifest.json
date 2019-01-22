@@ -10,6 +10,7 @@
     {
       "matches": ["https://ide-run.goorm.io/*"],
       "js": ["dist/contentScript.js"],
+      "css": ["styles.css"],
       "run_at": "document_end"
     }
   ],
