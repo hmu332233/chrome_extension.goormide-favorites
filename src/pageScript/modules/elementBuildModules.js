@@ -27,21 +27,15 @@ function makeTabContentSection({ id }) {
   return div;
 }
 
-function makeFavoriteItem({ id, fileName, fileType, path }) {
+function makeFavoriteItem({ id, fileName, fileType, path }, { handler }) {
   const div = document.createElement('div');
   div.setAttribute('item_id', id);
   div.setAttribute('path', path);
   div.setAttribute('file_type', fileType);
   div.textContent = fileName;
-
-  div.addEventListener('click', () => {
-    const convertedId = id.replace(/\//gi, "\\/").replace(/\./gi, "\\.");     
-    $(`#${convertedId}`).dblclick();
-  });
-
+  div.addEventListener('click', handler);
   return div;
 }
-
 
 export {
   makeFavoriteItem,
